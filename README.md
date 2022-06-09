@@ -1,6 +1,6 @@
 # Meter-Domains-SDK
 
-SDK for 3rd parties to integrate AstarWeb3Domains into their systems such as: Wallet, defi, dapp ..
+SDK for 3rd parties to integrate Web3Domains into their systems such as: Wallet, defi, dapp ..
 
 Main fuction:
 
