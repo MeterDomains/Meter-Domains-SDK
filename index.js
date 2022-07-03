@@ -51,10 +51,9 @@ exports.SDK = function (options) {
 	func.getOwner = async (domain, metadata = false) => 
 	{
 		const ownerAddress = await contractFirst.methods.getOwner(domain).call();
-		const addr = iotex.from(ownerAddress).string();
 		const obj = new Object();
 		obj.owner = ownerAddress;
-		obj.native = addr;
+		obj.native = "";
 		var arg = [];
 		if (metadata == true){
 			const tokenId = await contractFirst.methods.genTokenId(domain).call();
