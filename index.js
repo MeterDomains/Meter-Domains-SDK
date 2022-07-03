@@ -70,13 +70,13 @@ exports.SDK = function (options) {
 		return obj;
 	}
 	
-	func.getDomain = async (address) => 
+	func.getDomain = async (_address) => 
 	{
-		const defaultDomain = '';
 		try{
-			defaultDomain = await contractFirst.methods.reverseOf(address).call();
+			const defaultDomain = await contractFirst.methods.reverseOf(_address).call();
+			return defaultDomain
 		}catch{}
-		return defaultDomain;
+		return "";
 	}
   
     func.getDomains = async (address) => 
