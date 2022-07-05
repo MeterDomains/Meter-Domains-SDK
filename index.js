@@ -8,11 +8,11 @@ const config =
 {
 	testnet:{
 		rpcUrl: "",
-		contactAddress: ""
+		contractAddress: ""
 	},
 	mainnet:{ 
 		rpcUrl: "https://rpc.meter.io/",
-		contactAddress: "0xc518477643732dfccdc78f4e8484cc6ee44900bb"
+		contractAddress: "0xc518477643732dfccdc78f4e8484cc6ee44900bb"
 	},
 	defaultNetwork: "mainnet"
 }
@@ -28,11 +28,22 @@ exports.SDK = function (options) {
 		_config  = options;
 	}
 	
-	var rpcUrl = _config.testnet.rpcUrl;
-	var contractAddress = _config.testnet.contactAddress;
+	var rpcUrl = _config.mainnet.rpcUrl;
+	var contractAddress = _config.mainnet.contractAddress;
+	
+	if (_config.defaultNetwork == 'testnet'){
+		rpcUrl = _config.testnet.rpcUrl;
+		contractAddress = _config.testnet.contractAddress;
+		if (typeof contractAddress == 'undefined'){
+			contractAddress = _config.testnet.contactAddress;
+		}
+	}
 	if (_config.defaultNetwork == 'mainnet'){
 		rpcUrl = _config.mainnet.rpcUrl;
-		contractAddress = _config.mainnet.contactAddress;
+		contractAddress = _config.mainnet.contractAddress;
+		if (typeof contractAddress == 'undefined'){
+			contractAddress = _config.mainnet.contactAddress;
+		}
 	}
 
 	const web3 = new Web3(new Web3.providers.HttpProvider(rpcUrl));
