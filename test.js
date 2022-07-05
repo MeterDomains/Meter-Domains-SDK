@@ -13,6 +13,8 @@ const config =
 	defaultNetwork: "mainnet"
 }
 
+call();
+
 async function call(){
 	
 	// install
@@ -41,25 +43,25 @@ async function call(){
 	console.log(domain);
 	
 	// gets all the domains owned by an wallet address.
-	//const domains = await sdk.getDomains(_address);
+	const domains = await sdk.getDomains(_address);
 
-	//console.log(domains);
+	console.log(domains);
 	
 	//Get a value of metadata from the domain name
 	
-	//const _avatar = await sdk.getMetadata("avatar", _domain);
+	const _avatar = await sdk.getMetadata("avatar", _domain);
 
-	//console.log(_avatar);
+	console.log(_avatar);
 	
 	//Get values of metadata from the domain name
 	
-	//const _values = await sdk.getMetadatas(["avatar", "website", "twitter"], _domain);
+	const _values = await sdk.getMetadatas(["avatar", "website", "twitter"], _domain);
 
-	//console.log(_values);
+	console.log(_values);
 	
 	// Namehash is a recursive process that can generate a unique hash for any valid domain name.
-	//const hashname = await sdk.hashname(_domain);
+	const hashname = await sdk.hashname(_domain);
 
-	//console.log(hashname);
+	console.log(hashname);
 }
 
